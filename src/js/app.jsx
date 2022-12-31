@@ -9,7 +9,7 @@ class App extends React.Component {
         }
     }
 
-    addNewTask(){
+    displayTasks(){
         const taskListElem = document.getElementById('task-list');
         taskListElem.innerHTML = null;
         const taskList = [...this.state.taskList];
@@ -26,7 +26,6 @@ class App extends React.Component {
     handleClick(event){
         event.preventDefault();
         const newTaskList = [...this.state.taskList, event.target.value];
-        this.addNewTask();
         this.setState({
             currentTask: '',
             taskList: newTaskList,
@@ -38,6 +37,7 @@ class App extends React.Component {
     }
 
     render(){
+        this.displayTasks();
         return (
             <div className="container">
                 <div>
