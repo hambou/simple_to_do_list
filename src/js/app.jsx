@@ -32,10 +32,12 @@ class App extends React.Component {
 
     handleClick(event){
         event.preventDefault();
-        const newTaskList = [...this.state.taskList, event.target.value];
+        const newTaskList = [...this.state.taskList, {task: event.target.value, id: this.state.elemIndex}];
+        const newElemIndex = this.state.elemIndex + 1;
         this.setState({
             currentTask: '',
             taskList: newTaskList,
+            elemIndex: newElemIndex
         })
     }
 

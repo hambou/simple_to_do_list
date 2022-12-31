@@ -4,16 +4,16 @@ class Ul extends React.Component {
     render(){
         return (
             <div>
-              {this.props.taskList.map(task => (
-                <li>
-                    <div className="taskListItem">
-                        <p>{task}</p>
-                        <div className="item-delete">
-                            X
+                {this.props.taskList.map(task => (
+                    <li key={task.id} className="taskListItem">
+                        <div>
+                            <p>{task.task}</p>
+                            <div>
+                                X
+                            </div>
                         </div>
-                    </div>
-                </li>
-              ))}
+                    </li>
+            ))}
             </div>
           );
     }
