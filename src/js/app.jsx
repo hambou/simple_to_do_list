@@ -11,23 +11,12 @@ class App extends React.Component {
         }
     }
 
-    displayTasks(){
-        const taskListElem = document.getElementById('task-list');
-        if (!taskListElem){
-            return;
-        }
-        taskListElem.innerHTML = null;
-        const taskList = [...this.state.taskList];
-        taskList.map(( task )=> {
-            const innerHTML = `<li id="${this.state.elemIndex}">${task}</li>`;
-            const newElemIndex = this.state.elemIndex + 1;
-            console.log();
-            const child = document.createElement('li');
-            child.innerHTML = innerHTML;
-            taskListElem.appendChild(child);
-            // this.setState({elemIndex: newElemIndex});
-        })
-
+    deleteTask(event){
+        let idToRemove = parseInt(event.target.id);
+        let newTaskList = this.state.taskList.filter((task) => {
+            return task.id !== idToRemove
+        });
+        this.setState({taskList: newTaskList});
     }
 
     handleClick(event){
@@ -63,7 +52,7 @@ class App extends React.Component {
                     </form>
                 </section>
                 <section>
-                    <Ul taskList={this.state.taskList} test={() => this.displayTasks}/>
+                    <Ul taskList={this.state.taskList} deleteTask={(event) => this.deleteTask(event)}/>
                 </section>
             </div>
         )

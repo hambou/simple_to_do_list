@@ -8,7 +8,7 @@ class Ul extends React.Component {
                     <li key={task.id} className="taskListItem">
                         <div>
                             <p>{task.task}</p>
-                            <div>
+                            <div id={task.id} onClick={ (event) => this.props.deleteTask(event) }>
                                 X
                             </div>
                         </div>
