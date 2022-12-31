@@ -1,24 +1,31 @@
 import React from 'react';
+import Ul from './ul';
 
 class App extends React.Component {
     constructor( props ) {
         super( props );
         this.state = {
             currentTask: '',
-            taskList: []
+            taskList: [],
+            elemIndex: 0,
         }
     }
 
     displayTasks(){
         const taskListElem = document.getElementById('task-list');
+        if (!taskListElem){
+            return;
+        }
         taskListElem.innerHTML = null;
         const taskList = [...this.state.taskList];
         taskList.map(( task )=> {
-            const innerHTML = `<li>${task}</li>`;
+            const innerHTML = `<li id="${this.state.elemIndex}">${task}</li>`;
+            const newElemIndex = this.state.elemIndex + 1;
+            console.log();
             const child = document.createElement('li');
             child.innerHTML = innerHTML;
             taskListElem.appendChild(child);
-            console.log(child.innerHTML);
+            // this.setState({elemIndex: newElemIndex});
         })
 
     }
@@ -37,10 +44,9 @@ class App extends React.Component {
     }
 
     render(){
-        this.displayTasks();
         return (
             <div className="container">
-                <div>
+                <section>
                     <h1>To Do List .... </h1>
                     <form action="">
                         <input 
@@ -53,13 +59,10 @@ class App extends React.Component {
                             onClick={(event) => this.handleClick(event)}>Ajouter
                         </button>
                     </form>
-                </div>
-                <div>
-                </div>
-                <div>
-                    <ul id="task-list">
-                    </ul>
-                </div>
+                </section>
+                <section>
+                    <Ul taskList={this.state.taskList} test={() => this.displayTasks}/>
+                </section>
             </div>
         )
     }
