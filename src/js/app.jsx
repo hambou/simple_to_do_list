@@ -8,9 +8,25 @@ class App extends React.Component {
             taskList: []
         }
     }
+
+    addNewTask(){
+        const taskListElem = document.getElementById('task-list');
+        taskListElem.innerHTML = null;
+        const taskList = [...this.state.taskList];
+        taskList.map(( task )=> {
+            const innerHTML = `<li>${task}</li>`;
+            const child = document.createElement('li');
+            child.innerHTML = innerHTML;
+            taskListElem.appendChild(child);
+            console.log(child.innerHTML);
+        })
+
+    }
+
     handleClick(event){
         event.preventDefault();
         const newTaskList = [...this.state.taskList, event.target.value];
+        this.addNewTask();
         this.setState({
             currentTask: '',
             taskList: newTaskList,
@@ -41,7 +57,7 @@ class App extends React.Component {
                 <div>
                 </div>
                 <div>
-                    <ul id="list">
+                    <ul id="task-list">
                     </ul>
                 </div>
             </div>
