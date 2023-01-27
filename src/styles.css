@@ -19,7 +19,6 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  border: 1px solid black;
 }
 
 .container
@@ -33,30 +32,36 @@ body {
   height: 100%;
 }
 
+.flex 
+{
+  display: flex;
+}
+
 section,
 nav {
   height: 100%;
 }
 
-#profile{
+nav{
   width: 25%;
   min-width: 280px;
   background-color: white;
+  flex-direction: column;
 }
 
 #form {
   width: 75%;
 }
 
-#nav-header,
-#nav-header > div
-{
-  display: flex;
-}
 
 #nav-header
 {
   flex-direction: row;
+  border: 1px solid black;
+}
+
+#profile-infos > h2{
+  color: black;
 }
 
 #nav-header > div 
@@ -70,6 +75,7 @@ nav {
   padding: 1em;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 #profile-photo > img
@@ -77,6 +83,7 @@ nav {
   max-height: 5em;
   width: 5em;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 #profile-infos
@@ -85,12 +92,35 @@ nav {
   padding: 1em;
   justify-content: center;
   align-items: flex-start;
+  flex: 3;
+}
+
+#title-container
+{
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  border: 1px solid white;
+  padding: 0.25em 1.2em;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h1 {
-  justify-content: center;
+
+main
+{
+  border: 1px solid black;
+  margin: auto;
+  height: 90%;
+  width: 80%;
+}
+
+h1,
+h2 
+{
+  color: white;
+  text-align: center;
 }

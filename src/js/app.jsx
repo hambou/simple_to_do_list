@@ -10,52 +10,34 @@ class App extends React.Component {
         }
     }
 
-    deleteTask(event){
-        let idToRemove = parseInt(event.target.id);
-        let newTaskList = this.state.taskList.filter((task) => {
-            return task.id !== idToRemove
-        });
-        this.setState({taskList: newTaskList});
-    }
-
-    handleClick(event){
-        event.preventDefault();
-        const newTaskList = [...this.state.taskList, {task: event.target.value, id: this.state.elemIndex}];
-        const newElemIndex = this.state.elemIndex + 1;
-        this.setState({
-            currentTask: '',
-            taskList: newTaskList,
-            elemIndex: newElemIndex
-        })
-    }
-
-    handleChange(event) {
-        this.setState({currentTask: event.target.value})
-    }
-
     render(){
         return (
             <div className="container">
-                <section id="form">
-                    <h1>To Do List .... </h1>
-                    <form action="">
-                        <input 
-                            value={this.state.currentTask} 
-                            onChange={(event) => this.handleChange(event) } 
-                            type="text" 
-                            placeholder='Nouvelle tache'/>
-                        <button 
-                            value={this.state.currentTask} 
-                            onClick={(event) => this.handleClick(event)}>Ajouter
-                        </button>
-                    </form>
+                <section id="form" class="flex">
+                    <main>
+                        <div id="title-container" class="flex">
+                            <h1>Les taches de la journée</h1>
+                            <h2>Finir la to-do list</h2>
+                        </div>
+                        <form action="">
+                            <input 
+                                value={this.state.currentTask} 
+                                onChange={(event) => this.handleChange(event) } 
+                                type="text" 
+                                placeholder='Nouvelle tache'/>
+                            <button 
+                                value={this.state.currentTask} 
+                                onClick={(event) => this.handleClick(event)}>Ajouter
+                            </button>
+                        </form>
+                    </main>
                 </section>
-                <nav id="profile">
-                    <div id="nav-header">
-                        <div id="profile-photo">
+                <nav class="flex">
+                    <div id="nav-header" class="flex">
+                        <div id="profile-photo" class="flex">
                             <img  src="https://urlz.fr/kAwj" alt="photo de profil" />
                         </div>
-                        <div id="profile-infos">
+                        <div id="profile-infos" class="flex">
                             <h2>Do it !</h2>
                             <p>Hamza Boudra</p>
                         </div>
