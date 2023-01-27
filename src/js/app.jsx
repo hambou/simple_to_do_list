@@ -1,5 +1,4 @@
 import React from 'react';
-import Ul from './ul';
 
 class App extends React.Component {
     constructor( props ) {
@@ -37,7 +36,7 @@ class App extends React.Component {
     render(){
         return (
             <div className="container">
-                <section>
+                <section id="form">
                     <h1>To Do List .... </h1>
                     <form action="">
                         <input 
@@ -51,9 +50,17 @@ class App extends React.Component {
                         </button>
                     </form>
                 </section>
-                <section>
-                    <Ul taskList={this.state.taskList} deleteTask={(event) => this.deleteTask(event)}/>
-                </section>
+                <nav id="profile">
+                    <div id="nav-header">
+                        <div id="profile-photo">
+                            <img  src="https://urlz.fr/kAwj" alt="photo de profil" />
+                        </div>
+                        <div id="profile-infos">
+                            <h2>Do it !</h2>
+                            <p>Hamza Boudra</p>
+                        </div>
+                    </div>
+                </nav>
             </div>
         )
     }

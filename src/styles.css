@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: grey;
+}
+
+#root
+{
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid black;
+}
+
+.container
+{
+  background-color: #a181ff;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+section,
+nav {
+  height: 100%;
+}
+
+#profile{
+  width: 25%;
+  min-width: 280px;
+  background-color: white;
+}
+
+#form {
+  width: 75%;
+}
+
+#nav-header,
+#nav-header > div
+{
+  display: flex;
+}
+
+#nav-header
+{
+  flex-direction: row;
+}
+
+#nav-header > div 
+{
+  flex-direction: column;
+}
+
+#profile-photo
+{
+  max-width: 40%;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+#profile-photo > img
+{
+  max-height: 5em;
+  width: 5em;
+  border-radius: 100%;
+}
+
+#profile-infos
+{
+  max-width: 60%;
+  padding: 1em;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+h1 {
+  justify-content: center;
+}
